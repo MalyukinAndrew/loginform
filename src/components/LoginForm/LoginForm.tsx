@@ -56,7 +56,7 @@ function LoginForm() {
           <Button htmlType="submit">Log in</Button>
         </div>
       </form>
-      <div className={styles.div}>OR</div>
+      <div className={styles.divider}>OR</div>
       <Button type="link" onClick={toggleModal}>
         Register
       </Button>

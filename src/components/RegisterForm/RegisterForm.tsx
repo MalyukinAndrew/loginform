@@ -21,7 +21,7 @@ function RegisterForm() {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <label>Name</label>
+        <label htmlFor="name">Name</label>
         <FormFieldWrapper error={formik.errors.name}>
           <Input
             bordered={false}
@@ -31,7 +31,7 @@ function RegisterForm() {
             onChange={formik.handleChange}
           />
         </FormFieldWrapper>
-        <label>
+        <label htmlFor="email">
           Email <span>*</span>
         </label>
         <FormFieldWrapper error={formik.errors.email}>
@@ -43,7 +43,7 @@ function RegisterForm() {
             onChange={formik.handleChange}
           />
         </FormFieldWrapper>
-        <label>
+        <label htmlFor="password">
           Password <span>*</span>
         </label>
         <FormFieldWrapper error={formik.errors.password}>
@@ -54,7 +54,7 @@ function RegisterForm() {
             onChange={formik.handleChange}
           />
         </FormFieldWrapper>
-        <label>
+        <label htmlFor="confirm">
           Confirm password <span>*</span>
         </label>
         <FormFieldWrapper error={formik.errors.confirm}>

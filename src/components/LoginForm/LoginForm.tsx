@@ -21,18 +21,14 @@ function LoginForm() {
 
   const [isModalVisible, setIsModalVisible] = React.useState(false)
 
-  const showModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleCancel = () => {
-    setIsModalVisible(false)
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible)
   }
 
   return (
     <div className={styles.formWrapper}>
       <form onSubmit={formik.handleSubmit}>
-        <label>
+        <label htmlFor="email">
           Email <span>*</span>
         </label>
         <FormFieldWrapper error={formik.errors.email}>
@@ -44,7 +40,7 @@ function LoginForm() {
             onChange={formik.handleChange}
           />
         </FormFieldWrapper>
-        <label>
+        <label htmlFor="password">
           Password <span>*</span>
         </label>
         <FormFieldWrapper error={formik.errors.password}>
@@ -61,13 +57,13 @@ function LoginForm() {
         </div>
       </form>
       <div className={styles.div}>OR</div>
-      <Button type="link" onClick={showModal}>
+      <Button type="link" onClick={toggleModal}>
         Register
       </Button>
       <Modal
         title="Register"
         visible={isModalVisible}
-        onCancel={handleCancel}
+        onCancel={toggleModal}
         footer={null}
       >
         <RegisterForm />

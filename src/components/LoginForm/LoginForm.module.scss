@@ -1,0 +1,20 @@
+.formWrapper{
+  min-width: 300px;
+
+
+  form{
+    text-align: center;
+
+    label{
+      font-size: 20px;
+
+      span{
+        color: tomato;
+      }
+    }
+
+    button{
+      margin-top: 16px;
+    }
+  }
+}

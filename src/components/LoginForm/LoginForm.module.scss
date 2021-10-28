@@ -1,12 +1,16 @@
 .formWrapper{
   min-width: 300px;
+  text-align: center;
 
+  .div{
+    margin-top: 10px;
+  }
 
   form{
     text-align: center;
 
     label{
-      font-size: 20px;
+      font-size: 16px;
 
       span{
         color: tomato;

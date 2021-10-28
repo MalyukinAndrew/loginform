@@ -1,16 +1,16 @@
 import React from 'react'
-import { Button, Input, Modal } from 'antd'
 import { useFormik } from 'formik'
-import { loginValidationSchema as validationSchema } from '../../constants/schemas'
+import { registerValidationSchema as validationSchema } from '../../constants/schemas'
 import FormFieldWrapper from '../FormFieldWrapper/FormFieldWrapper'
-import styles from './LoginForm.module.scss'
-import RegisterForm from '../RegisterForm/RegisterForm'
+import { Button, Input } from 'antd'
 
-function LoginForm() {
+function RegisterForm() {
   const formik = useFormik({
     initialValues: {
+      name: '',
       email: '',
       password: '',
+      confirm: '',
     },
     validationSchema,
     validateOnChange: false,
@@ -18,20 +18,19 @@ function LoginForm() {
       console.log(values)
     },
   })
-
-  const [isModalVisible, setIsModalVisible] = React.useState(false)
-
-  const showModal = () => {
-    setIsModalVisible(true)
-  }
-
-  const handleCancel = () => {
-    setIsModalVisible(false)
-  }
-
   return (
-    <div className={styles.formWrapper}>
+    <div>
       <form onSubmit={formik.handleSubmit}>
+        <label>Name</label>
+        <FormFieldWrapper error={formik.errors.name}>
+          <Input
+            bordered={false}
+            name="name"
+            placeholder="Andrew"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+          />
+        </FormFieldWrapper>
         <label>
           Email <span>*</span>
         </label>
@@ -55,25 +54,24 @@ function LoginForm() {
             onChange={formik.handleChange}
           />
         </FormFieldWrapper>
+        <label>
+          Confirm password <span>*</span>
+        </label>
+        <FormFieldWrapper error={formik.errors.confirm}>
+          <Input.Password
+            bordered={false}
+            name="confirm"
+            value={formik.values.confirm}
+            onChange={formik.handleChange}
+          />
+        </FormFieldWrapper>
 
         <div>
-          <Button htmlType="submit">Log in</Button>
+          <Button htmlType="submit">Register</Button>
         </div>
       </form>
-      <div className={styles.div}>OR</div>
-      <Button type="link" onClick={showModal}>
-        Register
-      </Button>
-      <Modal
-        title="Register"
-        visible={isModalVisible}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <RegisterForm />
-      </Modal>
     </div>
   )
 }
 
-export default LoginForm
+export default RegisterForm

@@ -1,12 +1,10 @@
-import React from 'react'
-import 'antd/dist/antd.css'
-
+import React, { ReactChild } from 'react'
 import styles from './FormFieldWrapper.module.scss'
 import cn from 'classnames'
 
 interface IFormFieldWrapperProps {
   error: string | undefined
-  children: any
+  children: ReactChild
 }
 
 function FormFieldWrapper({ error, children }: IFormFieldWrapperProps) {
